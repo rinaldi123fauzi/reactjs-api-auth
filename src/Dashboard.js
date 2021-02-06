@@ -2,7 +2,7 @@ import React from 'react';
 import { getUser, removeUserSession } from './Utils/Common';
 
 function Dashboard(props) {
-  const user = sessionStorage.getItem('user');
+  const user = getUser('user');
 
   // handle click event of logout button
   const handleLogout = () => {
@@ -12,7 +12,7 @@ function Dashboard(props) {
 
   return (
     <div>
-      Welcome {user.username}!<br /><br />
+      Welcome {user.name}!<br /><br />
       <input type="button" onClick={handleLogout} value="Logout" />
     </div>
   );

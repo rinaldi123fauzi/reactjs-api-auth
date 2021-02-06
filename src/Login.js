@@ -9,7 +9,7 @@ function Login(props) {
   const [error, setError] = useState(null);
 
   const api = axios.create({
-    baseURL: `http://192.168.60.56:8080/api/v1/login`,
+    baseURL: `http://192.168.60.56:2211/api/v1/login`,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ function Login(props) {
     setLoading(true);
     api.post('', { username: username.value, password: password.value }).then(response => {
       setLoading(false);
-      setUserSession(response.data.token, response.data.user);
+      setUserSession(response.data.token, response.data.data);
       props.history.push('/dashboard');
     }).catch(error => {
       setLoading(false);
